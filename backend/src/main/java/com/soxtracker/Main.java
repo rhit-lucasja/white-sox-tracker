@@ -1,5 +1,9 @@
 package com.soxtracker;
 
+import com.soxtracker.controllers.ScheduleController;
+import com.soxtracker.repositories.ScheduleRepository;
+import com.soxtracker.services.ScheduleService;
+
 import io.javalin.Javalin;
 import io.javalin.openapi.plugin.OpenApiPlugin;
 import io.javalin.openapi.plugin.swagger.SwaggerPlugin;
@@ -20,6 +24,11 @@ public class Main {
 		});
 		app.get("/api/health", ctx -> ctx.result("ok"));
 		app.start(8080);
+
+		// create the necessary API entities
+		ScheduleRepository scheduleRepository = new ScheduleRepository();
+		ScheduleService scheduleService = new ScheduleService(scheduleRepository);
+		ScheduleController.register(app, scheduleService);
 	}
 
 }
