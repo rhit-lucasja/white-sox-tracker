@@ -1,8 +1,6 @@
 package com.soxtracker;
 
 import com.soxtracker.controllers.ScheduleController;
-import com.soxtracker.repositories.ScheduleRepository;
-import com.soxtracker.services.ScheduleService;
 
 import io.javalin.Javalin;
 import io.javalin.openapi.plugin.OpenApiPlugin;
@@ -26,9 +24,7 @@ public class Main {
 		app.start(8080);
 
 		// create the necessary API entities
-		ScheduleRepository scheduleRepository = new ScheduleRepository();
-		ScheduleService scheduleService = new ScheduleService(scheduleRepository);
-		ScheduleController.register(app, scheduleService);
+		ScheduleController.register(app);
 	}
 
 }

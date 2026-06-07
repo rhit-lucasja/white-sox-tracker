@@ -12,12 +12,12 @@ public class ScheduleController {
     
     private final ScheduleService service;
 
-    public ScheduleController(ScheduleService service) {
-        this.service = service;
+    public ScheduleController() {
+        this.service = new ScheduleService();
     }
 
-    public static void register(Javalin app, ScheduleService service) {
-        ScheduleController controller = new ScheduleController(service);
+    public static void register(Javalin app) {
+        ScheduleController controller = new ScheduleController();
         app.get("/api/schedule", controller::getSchedule);
     }
 

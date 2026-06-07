@@ -18,8 +18,8 @@ public class ScheduleService {
     private final ScheduleRepository repository;
     private final ObjectMapper mapper;
 
-    public ScheduleService(ScheduleRepository repository) {
-        this.repository = repository;
+    public ScheduleService() {
+        this.repository = new ScheduleRepository();
         this.mapper = new ObjectMapper();
         this.mapper.registerModule(new JavaTimeModule());
     }
