@@ -23,7 +23,8 @@ public class ScheduleController {
 
     @OpenApi(
         path = "/api/schedule",
-        methods = {HttpMethod.GET},
+        methods = { HttpMethod.GET },
+        tags = { "Schedule" },
         summary = "Retrieves White Sox schedule",
         description = "Retrieves the White Sox schedule for a given season, proxied from MLB Stats API",
         queryParams = {
