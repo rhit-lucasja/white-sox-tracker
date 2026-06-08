@@ -1,6 +1,7 @@
 package com.soxtracker;
 
 import com.soxtracker.controllers.ScheduleController;
+import com.soxtracker.controllers.StandingsController;
 
 import io.javalin.Javalin;
 import io.javalin.openapi.plugin.OpenApiPlugin;
@@ -25,6 +26,7 @@ public class Main {
 
 		// create the necessary API entities
 		ScheduleController.register(app);
+		StandingsController.register(app);
 	}
 
 }
